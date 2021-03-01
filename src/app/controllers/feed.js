@@ -28,11 +28,11 @@ async function sendFeed(title, link) {
 async function saveFeed(title, link) {
   try {
     if (await isAlreadySaved(link)) {
-      return console.log("Already parsed. ⚠ | ON SAVE");
+      throw new Error("Already parsed. ⚠ | ON SAVE");
     }
 
-    const news = await new News({ title: title, link: link });
-    await news.save().then(() => console.log("Item saved. ✅"));
+    const news = new News({ title: title, link: link });
+    news.save().then(() => console.log("Item saved. ✅"));
   } catch (err) {
     return console.log(`Failed on saving News ❌\nERRO:${err}`);
   }

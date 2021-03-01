@@ -1,1 +1,1 @@
-web: micro-bot -p $PORT
+web: node src/index.js
