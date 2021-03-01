@@ -2,7 +2,11 @@ const Parser = require("rss-parser");
 
 const parser = new Parser();
 
-const { FEED_URL, BOT_CHANNEL } = require("../../modules/config");
+const {
+  FEED_URL,
+  BOT_CHANNEL,
+  REFRESH_INTERVAL,
+} = require("../../modules/config");
 
 const bot = require("../../modules/bot");
 const News = require("../../app/models/news");
@@ -55,5 +59,5 @@ async function parseFeed(feedLink) {
   }
 }
 
-setInterval(parseFeed, REFRESH_INTERVAL * 1000);
+setInterval(parseFeed, REFRESH_INTERVAL * 10000);
 parseFeed(FEED_URL);
