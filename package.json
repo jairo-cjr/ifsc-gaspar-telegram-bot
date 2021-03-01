@@ -1,7 +1,22 @@
 {
+  "name": "ifsc-gaspar-telegram-bot",
+  "version": "1.0.0",
+  "description": "Um Bot que envia notícias publicadas no portal do campus IFSC Gaspar e os contatos do campus quando solicitado pelo usuário.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "switch-to-dev": "export $(cat .env | xargs) && wget --spider https://api.telegram.org/bot$TOKEN/setWebhook?url= --delete-after && node index.js"
+  },
+  "author": "Jairo Caetano Junior",
+  "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mongoose": "^5.11.18",
     "node-telegram-bot-api": "^0.51.0",
-    "rss-parser": "^3.12.0"
+    "rss-parser": "^3.12.0",
+    "sanitize-html": "^2.3.2"
   }
 }

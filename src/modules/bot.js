@@ -1,5 +1,5 @@
 const TelegramBot = require("node-telegram-bot-api");
-const { BOT_TOKEN, NODE_ENV, HEROKU_URL } = require("../config");
+const { BOT_TOKEN, NODE_ENV, HEROKU_URL } = require("./config");
 
 if (NODE_ENV === "production") {
   bot = new TelegramBot(BOT_TOKEN);
