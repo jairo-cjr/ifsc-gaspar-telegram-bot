@@ -26,10 +26,10 @@ Create an `.env` document containing:
 NODE_ENV = development
 BOT_TOKEN = Token fornecido pelo BotFather
 BOT_CHANNEL = Canal que você criou e adicionou o bot, onde serão enviadas as atualizações.
+BOT_DOMAIN = URL do seu App no Heroku
 RESET_WEBHOOK_URL = https://api.telegram.org/bot<TOKEN DO SEU BOT FORNECIDO PELO BOTFATHER>/setWebhook?url=
 FEED_URL = RSS a ser utilizado pelo bot
 REFRESH_INTERVAL = Intervalo de tempo em minutos que o Feed será analisado
-HEROKU_URL = URL do seu App no Heroku
 MONGO_URL = URL do seu banco de dados Mongo
 ```
 
