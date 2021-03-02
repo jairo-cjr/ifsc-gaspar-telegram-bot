@@ -1,8 +1,9 @@
 const bot = require("./modules/bot");
 require("./app/controllers/feed");
 require("./app/controllers/contacts");
+require("./modules/web")(bot);
 
-const express = require("express");
+/* const express = require("express");
 const bodyParser = require("body-parser");
 
 const PORT = 3000;
@@ -36,4 +37,4 @@ app.listen(PORT || 8080, () => {
     console.clear();
     console.error(`ERRO AO CONECTAR: ${error}`);
   }
-});
+}); */
