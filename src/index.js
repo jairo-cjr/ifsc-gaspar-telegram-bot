@@ -1,5 +1,6 @@
 const bot = require("./modules/bot");
 require("./app/controllers/feed");
+require("./app/controllers/contacts");
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -10,7 +11,9 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
-  res.send("Hello. :)");
+  res.send(
+    `Acesse o canal clicando <a href="http://https://t.me/ifscgasparbot">aqui</a>`
+  );
 });
 
 app.post("/" + bot.token, (req, res) => {

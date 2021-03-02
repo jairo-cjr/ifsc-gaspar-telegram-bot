@@ -14,23 +14,19 @@ const News = require("../../app/models/news");
 //ENVIAR FEED
 async function sendFeed(title, link) {
   if (await isAlreadySaved(link)) {
-    return console.log("Already parsed. ⚠ | ON SEND");
+    return console.error("Already parsed. ⚠");
   }
   var message = `<b>${title}</b>\n<a href="${link}">Clique aqui para ler sobre</a>`;
   bot.sendMessage(BOT_CHANNEL, message, {
     parse_mode: "HTML",
     disable_web_page_preview: true,
   });
-  await saveFeed(title, link);
+  saveFeed(title, link);
 }
 
 //SALVAR FEED
 async function saveFeed(title, link) {
   try {
-    if (await isAlreadySaved(link)) {
-      throw new Error("Already parsed. ⚠ | ON SAVE");
-    }
-
     const news = new News({ title: title, link: link });
     news.save().then(() => console.log("Item saved. ✅"));
   } catch (err) {
