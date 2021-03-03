@@ -15,7 +15,7 @@ O objetivo principal dessa aplicação, além de estudar a criação de bots e c
 
 ```bash
 git add .
-git commit -am "Commit message"
+git commit -am "Make it better"
 git push heroku master
 ```
 
