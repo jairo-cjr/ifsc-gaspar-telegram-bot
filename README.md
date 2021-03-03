@@ -1,6 +1,6 @@
 # IFSC GASPAR BOT
 
-O objetivo principal dessa aplicação, além de estudar a criação de bots e como funcionam, é criar um bot que, utilizando RSS, envie notícias publicadas no [portal do campus IFSC Gaspar](https://www.ifsc.edu.br/web/campus-gaspar/noticias-por-categoria?p_p_id=122_INSTANCE_xqrhJQNWyCSn&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=_118_INSTANCE_S8G9AYPoVKDg__column-2&p_p_col_count=2&p_r_p_564233524_resetCur=true&p_r_p_564233524_categoryId=27870). O bot poderá enviar o contato dos docentes quando solicitados pelo usuário, através do comando `/contato [nome do docente]`
+O objetivo principal dessa aplicação, além de estudar a criação de bots e como funcionam, é criar um bot que, utilizando RSS, envie notícias publicadas no [portal do campus IFSC Gaspar](https://www.ifsc.edu.br/web/campus-gaspar/noticias-por-categoria?p_p_id=122_INSTANCE_xqrhJQNWyCSn&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=_118_INSTANCE_S8G9AYPoVKDg__column-2&p_p_col_count=2&p_r_p_564233524_resetCur=true&p_r_p_564233524_categoryId=27870). O bot poderá também enviar outras informações do campus quando solicitado pelo usuário, como o contato dos docentes e horário das aulas.`
 
 ## Tecnologias utilizadas
 
