@@ -1,4 +1,5 @@
 const bot = require("./modules/bot");
+const { NODE_ENV } = require("./modules/config");
 require("./app/controllers/index");
 require("./modules/web")(bot);
 
