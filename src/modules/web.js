@@ -12,7 +12,7 @@ app.get("/", function (req, res) {
   );
 });
 //process.env.PORT
-var server = app.listen(PORT || 8080, "0.0.0.0", () => {
+var server = app.listen(process.env.PORT || 8080, "0.0.0.0", () => {
   const host = server.address().address;
   const port = server.address().port;
   console.log("🚀 Web server started at http://%s:%s", host, port);
