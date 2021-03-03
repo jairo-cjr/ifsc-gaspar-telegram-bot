@@ -1,6 +1,5 @@
 const bot = require("./modules/bot");
-require("./app/controllers/feed");
-require("./app/controllers/contacts");
+require("./app/controllers/index");
 require("./modules/web")(bot);
 
 /* const express = require("express");

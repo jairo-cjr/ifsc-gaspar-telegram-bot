@@ -7,7 +7,7 @@ const {
 const bot = require("../../modules/bot");
 const Contact = require("../../app/models/contact");
 
-bot.onText(/\/contact (.+)/, async (msg, match) => {
+bot.onText(/\/contato (.+)/, async (msg, match) => {
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content  of the message
 
@@ -50,7 +50,7 @@ function sendContact(chatId, contact) {
   if (contact.length == 0) {
     bot.sendMessage(
       chatId,
-      "Nenhum contato foi encontrado. Verifique se o nome foi digitado corretamente e tente novamente.",
+      `Nenhum contato com o nome *${contact.name}* foi encontrado. Verifique se o nome foi digitado corretamente e tente novamente.`,
       {
         parse_mode: "Markdown",
       }
