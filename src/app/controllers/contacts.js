@@ -17,7 +17,7 @@ bot.onText(/\/contato (.+)/, async (msg, match) => {
   const chatId = msg.chat.id;
   const name = match[1]; // the captured "whatever"
   const contact = await searchContact(name);
-  sendContact(chatId, contact);
+  sendContact(chatId, contact, name);
 
   // send back the matched "whatever" to the chat
 
@@ -46,11 +46,11 @@ async function searchContact(name) {
   }
 }
 
-function sendContact(chatId, contact) {
+function sendContact(chatId, contact, name) {
   if (contact.length == 0) {
     bot.sendMessage(
       chatId,
-      `Nenhum contato com o nome *${contact.name}* foi encontrado. Verifique se o nome foi digitado corretamente e tente novamente.`,
+      `Nenhum contato com o nome *${name}* foi encontrado. Verifique se o nome foi informado corretamente e tente novamente.`,
       {
         parse_mode: "Markdown",
       }
