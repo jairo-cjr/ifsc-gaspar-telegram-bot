@@ -39,10 +39,10 @@ async function searchContact(name) {
     const contact = await Contact.find({
       name: { $regex: `${name}`, $options: "i" },
     });
-    console.log(contact);
+    // console.log(contact);
     return contact;
   } catch (err) {
-    return console.log("Erro ao buscar contato.");
+    return console.log("ERRO ENCONTRADO AO BUSCAR CONTATO: ", err);
   }
 }
 
