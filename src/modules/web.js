@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-PORT = 3000;
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -17,6 +15,21 @@ var server = app.listen(process.env.PORT || 8080, "0.0.0.0", () => {
   const port = server.address().port;
   console.log("🚀 Web server started at http://%s:%s", host, port);
 });
+
+if (NODE_ENV === "production") {
+  var server = app.listen(process.env.PORT || 8080, "0.0.0.0", () => {
+    const host = server.address().address;
+    const port = server.address().port;
+    console.log("🚀 Web server started at http://%s:%s", host, port);
+  });
+} else {
+  const PORT = 3000;
+  var server = app.listen(PORT || 8080, "0.0.0.0", () => {
+    const host = server.address().address;
+    const port = server.address().port;
+    console.log("🚀 Web server started at http://%s:%s", host, port);
+  });
+}
 
 module.exports = (bot) => {
   app.post("/" + bot.token, (req, res) => {
