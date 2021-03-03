@@ -5,10 +5,11 @@ O objetivo principal dessa aplicação, além de estudar a criação de bots e c
 ## Tecnologias utilizadas
 
 - Node.js
+- [Express](https://expressjs.com/pt-br/) - Framework NodeJS;
 - [fivefilters](https://feedcontrol.fivefilters.org) - Criador e gerenciador de Feeds RSS
-- [yagop/node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api) - framework para construir Bots do Telegram em Node
-- [rss-parser](https://github.com/rbren/rss-parser) - A small library for turning RSS XML feeds into JavaScript objects.
-- [sanitize-html](https://www.npmjs.com/package/sanitize-html) - Um limpador de HTML.
+- [yagop/node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api) - framework para construir Bots do Telegram em Node;
+- [rss-parser](https://github.com/rbren/rss-parser) - Biblioteca Javascipt para transformar feeds RSS/XML em objetos Javascript.
+- MongoDB - Banco de dados escolhido para gerenciar os dados da aplicação.
 
 # Deployng on Heroku
 
@@ -23,7 +24,7 @@ git push heroku master
 Create an `.env` document containing:
 
 ```json
-NODE_ENV = development
+NODE_ENV = development | production
 BOT_TOKEN = Token fornecido pelo BotFather
 BOT_CHANNEL = Canal que você criou e adicionou o bot, onde serão enviadas as atualizações.
 BOT_DOMAIN = URL do seu App no Heroku
