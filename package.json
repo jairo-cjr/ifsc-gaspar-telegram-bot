@@ -1,7 +1,7 @@
 {
   "name": "ifsc-gaspar-telegram-bot",
   "version": "1.0.0",
-  "description": "Um Bot que envia notícias publicadas no portal do campus IFSC Gaspar e os contatos do campus quando solicitado pelo usuário.",
+  "description": "Um Bot para Telegram que envia notícias publicadas no portal do campus IFSC Gaspar e os contatos dos docentes quando solicitado pelo usuário.",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

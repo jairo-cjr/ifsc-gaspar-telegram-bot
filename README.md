@@ -33,6 +33,6 @@ REFRESH_INTERVAL = Intervalo de tempo em minutos que o Feed será analisado
 MONGO_URL = URL do seu banco de dados Mongo
 ```
 
-## Thanks to
+## Agradecimentos
 
 - [xorus](https://github.com/xorus/rss-to-telegram) - Por disponibilizar um projeto de RSS no Telegram, utilizado como base para o desenvolvimento deste.
