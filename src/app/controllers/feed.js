@@ -60,5 +60,5 @@ async function parseFeed(feedLink) {
   }
 }
 
-setInterval(parseFeed, REFRESH_INTERVAL * 10000);
+setInterval(parseFeed, REFRESH_INTERVAL * 1000);
 parseFeed(FEED_URL);
