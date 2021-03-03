@@ -10,4 +10,8 @@ mongoose.connect(MONGO_URL, {
   useCreateIndex: true,
 });
 
+mongoose.connection.on("connected", () => {
+  console.log("💾 Is connected.");
+});
+
 module.exports = mongoose;
