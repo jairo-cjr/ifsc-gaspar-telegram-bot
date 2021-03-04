@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
   res.send(
-    `<h1>Acesse o canal clicando <a href="http://https://t.me/ifscgasparbot">aqui</a></h1>`
+    `<h1>Acesse o canal clicando <a href="https://t.me/ifscgasparbot">aqui</a></h1>`
   );
 });
 
