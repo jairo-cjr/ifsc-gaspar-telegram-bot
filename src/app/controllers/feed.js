@@ -46,9 +46,9 @@ async function isAlreadySaved(link) {
 }
 
 //LER FEED
-async function parseFeed(feedLink) {
+async function parseFeed() {
   try {
-    feed = await parser.parseURL(feedLink);
+    feed = await parser.parseURL(FEED_URL);
     feed.items.forEach((item) => {
       //regex para remover o excesso de espaços no titulo
       title = item.title.split(/\s{3,}/gi).shift();
@@ -61,4 +61,4 @@ async function parseFeed(feedLink) {
 }
 
 setInterval(parseFeed, REFRESH_INTERVAL * 1000);
-parseFeed(FEED_URL);
+parseFeed();
