@@ -1,6 +1,7 @@
 const Parser = require("rss-parser");
 
 const parser = new Parser();
+const refreshInterval = 15; //em minutos
 
 const {
   FEED_URL,
@@ -60,5 +61,5 @@ async function parseFeed() {
   }
 }
 
-setInterval(parseFeed, REFRESH_INTERVAL * 1000);
+setInterval(parseFeed, refreshInterval * 60000);
 parseFeed();

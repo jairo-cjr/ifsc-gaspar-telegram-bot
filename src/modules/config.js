@@ -9,5 +9,4 @@ module.exports = {
   MONGO_URL: process.env.MONGO_URL,
   NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
-  REFRESH_INTERVAL: process.env.REFRESH_INTERVAL,
 };
