@@ -8,6 +8,7 @@ if (NODE_ENV === "production") {
   bot = new TelegramBot(BOT_TOKEN, { polling: true });
 }
 
+console.clear();
 console.log(`🤖 Bot server started in the ${NODE_ENV} mode`);
 
 module.exports = bot;

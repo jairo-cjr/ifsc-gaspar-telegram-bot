@@ -31,9 +31,9 @@ async function saveFeed(title, link) {
   try {
     const news = new News({ title: title, link: link });
     await news.save();
-    // console.log("✅ Item saved.");
+    return console.log("✅ Item saved.");
   } catch (err) {
-    return console.log(`❌ Failed on saving News \nERRO:${err}`);
+    return console.log(`❌ Failed on saving News\nERRO:${err}`);
   }
 }
 
@@ -56,10 +56,11 @@ async function parseFeed() {
       link = item.guid;
       sendFeed(title, link);
     });
+    return console.log("FEED ANALISADO 👍");
   } catch (err) {
     console.log("ERRO AO ANALISAR FEED", err);
   }
 }
 
-setInterval(parseFeed, refreshInterval * 60000);
+setInterval(parseFeed, refreshInterval * 1000);
 parseFeed();

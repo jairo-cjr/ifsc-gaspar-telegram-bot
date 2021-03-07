@@ -15,24 +15,24 @@ bot.onText(/\/contato (.+)/, async (msg, match) => {
   // console.log(`MATCH: ${match[1]}`);
 
   const chatId = msg.chat.id;
-  const name = match[1]; // the captured "whatever"
+  const name = match[1];
   if (name.toLowerCase() == "ifsc") {
     bot.sendMessage(chatId, CAMPUS_CONTACTS, {
       parse_mode: "Markdown",
     });
   } else {
-    const contact = await searchContact(name);
+    const contact = await findContactByName(name);
     sendContact(chatId, contact, name);
   }
 });
 
-async function searchContact(name) {
+async function findContactByName(name) {
   // name: { $regex: `^${name}`, $options: "i" },
 
-  let regex = "/^[${name}]$/";
+  let findContactRegex = new RegExp("\\b(" + name + ")\\b", "gim");
   try {
     const contact = await Contact.find({
-      name: { $regex: `${name}`, $options: "i" },
+      name: findContactRegex,
     });
     // console.log(contact);
     return contact;
