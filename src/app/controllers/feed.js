@@ -62,5 +62,5 @@ async function parseFeed() {
   }
 }
 
-setInterval(parseFeed, refreshInterval * 1000);
+setInterval(parseFeed, refreshInterval * 60 * 1000);
 parseFeed();
