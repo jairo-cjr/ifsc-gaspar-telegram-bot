@@ -63,11 +63,7 @@ async function parseFeed() {
 }
 
 const parseFeedJob = new CronJob("0 */20 * * * *", function () {
-  try {
-    parseFeed();
-  } catch (err) {
-    console.log("ERRO NO CRON");
-  }
+  parseFeed();
 });
 parseFeedJob.start();
 parseFeed();

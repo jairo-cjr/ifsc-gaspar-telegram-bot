@@ -1,8 +1,10 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const { NODE_ENV } = require("./config");
 
 const app = express();
+app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
   res.send(
