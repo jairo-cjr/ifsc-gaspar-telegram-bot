@@ -35,6 +35,7 @@ module.exports = (bot) => {
   });
 };
 
+/*
 function startKeepAlive() {
   setInterval(() => {
     http
@@ -55,3 +56,4 @@ function startKeepAlive() {
 }
 
 startKeepAlive();
+*/
