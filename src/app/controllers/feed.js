@@ -62,7 +62,7 @@ async function parseFeed() {
   }
 }
 
-const parseFeedJob = new CronJob("0 */1 * * * *", function () {
+const parseFeedJob = new CronJob("0 */15 * * * *", function () {
   parseFeed();
 });
 parseFeedJob.start();
