@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const http = require("http");
 
 const { NODE_ENV } = require("./config");
 
@@ -26,6 +27,31 @@ if (NODE_ENV === "production") {
     console.log("🚀 Web server started at http://%s:%s", host, port);
   });
 }
+
+function startKeepAlive() {
+  setInterval(function () {
+    var options = {
+      host: "your_app_name.herokuapp.com",
+      port: 80,
+      path: "/",
+    };
+    http
+      .get(options, function (res) {
+        res.on("data", (chunk) => {
+          // try {
+          //     console.log("HEROKU OK");
+          // } catch (err) {
+          //     console.log(err.message);
+          // }
+        });
+      })
+      .on("error", function (err) {
+        console.log("Error: " + err.message);
+      });
+  }, 15 * 60 * 1000); // carrega a cada 20min
+}
+
+startKeepAlive();
 
 module.exports = (bot) => {
   app.post("/" + bot.token, (req, res) => {
