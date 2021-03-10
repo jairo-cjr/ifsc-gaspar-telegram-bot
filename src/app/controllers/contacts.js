@@ -16,8 +16,9 @@ bot.onText(/\/contato (.+)/, async (msg, match) => {
 
   const chatId = msg.chat.id;
   const name = match[1];
-  if (name.toLowerCase() == "ifsc") {
-    bot.sendMessage(chatId, CAMPUS_CONTACTS, {
+  const nameLower = name.toLowerCase();
+  if (nameLower == "ifsc") {
+    return bot.sendMessage(chatId, CAMPUS_CONTACTS, {
       parse_mode: "Markdown",
     });
   } else {

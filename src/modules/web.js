@@ -1,12 +1,11 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const http = require("http"); //importing http
 
 // require("dotenv").config();
 // const NODE_ENV = process.env.NODE_ENV;
 const { NODE_ENV } = require("./config");
 
 const app = express();
-app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
   res.send(
@@ -28,6 +27,27 @@ if (NODE_ENV === "production") {
     console.log("🚀 Web server started at http://%s:%s", host, port);
   });
 }
+
+function startKeepAlive() {
+  setInterval(() => {
+    http
+      .get("http://ifsc-gaspar-telegram-bot.herokuapp.com/", function (res) {
+        res.on("data", function (chunk) {
+          try {
+            // optional logging... disable after it's working
+            console.log("HEROKU OK");
+          } catch (err) {
+            console.log(err.message);
+          }
+        });
+      })
+      .on("error", function (err) {
+        console.log("Error: " + err.message);
+      });
+  }, 15 * 60 * 1000); // load every 15 minutes
+}
+
+startKeepAlive();
 
 module.exports = (bot) => {
   app.post("/" + bot.token, (req, res) => {
