@@ -28,6 +28,13 @@ if (NODE_ENV === "production") {
   });
 }
 
+module.exports = (bot) => {
+  app.post("/" + bot.token, (req, res) => {
+    bot.processUpdate(req.body);
+    res.sendStatus(200);
+  });
+};
+
 function startKeepAlive() {
   setInterval(() => {
     http
@@ -48,10 +55,3 @@ function startKeepAlive() {
 }
 
 startKeepAlive();
-
-module.exports = (bot) => {
-  app.post("/" + bot.token, (req, res) => {
-    bot.processUpdate(req.body);
-    res.sendStatus(200);
-  });
-};
