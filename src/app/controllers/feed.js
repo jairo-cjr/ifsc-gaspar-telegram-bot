@@ -1,7 +1,7 @@
 const Parser = require("rss-parser");
+var CronJob = require("cron").CronJob;
 
 const parser = new Parser();
-const refreshInterval = 15; //em minutos
 
 const {
   FEED_URL,
@@ -62,5 +62,8 @@ async function parseFeed() {
   }
 }
 
-setInterval(parseFeed, refreshInterval * 60 * 1000);
+const parseFeedJob = new CronJob("0 */1 * * * *", function () {
+  parseFeed();
+});
+parseFeedJob.start();
 parseFeed();

@@ -1,7 +1,11 @@
 const bot = require("../../modules/bot");
 const path = require("path");
 
-const { HELP_MESSAGE, VALIDACAO_MESSAGE } = require("../../modules/messages");
+const {
+  HELP_MESSAGE,
+  VALIDACAO_MESSAGE,
+  COORDENADORIA_MESSAGE,
+} = require("../../modules/messages");
 const { FORMS_LINK } = require("../../modules/config");
 
 const SCHEDULE_LINK =
@@ -19,6 +23,14 @@ bot.onText(/\/start/, (msg, match) => {
 bot.onText(/\/help/, (msg, match) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, HELP_MESSAGE, {
+    parse_mode: "Markdown",
+  });
+});
+
+//COMMAND /coordenadoria
+bot.onText(/\/coordenadoria/, (msg, match) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, COORDENADORIA_MESSAGE, {
     parse_mode: "Markdown",
   });
 });
@@ -55,7 +67,7 @@ bot.onText(/\/documentos/, (msg, match) => {
   );
 });
 
-//comando /FORMULARIO
+//COMAND /formulario
 bot.onText(/\/formulario/, (msg, match) => {
   const chatId = msg.chat.id;
   bot.sendMessage(
