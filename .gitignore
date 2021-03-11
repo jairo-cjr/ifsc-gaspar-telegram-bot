@@ -108,3 +108,4 @@ dist
 
 #Prettier
 .Prettierignore
+cron.js

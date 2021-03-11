@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const http = require("http");
+const CronJob = require("cron").CronJob;
 
 const { NODE_ENV } = require("./config");
 
@@ -29,29 +30,28 @@ if (NODE_ENV === "production") {
 }
 
 function startKeepAlive() {
-  setInterval(function () {
-    var options = {
-      host: "your_app_name.herokuapp.com",
-      port: 80,
-      path: "/",
-    };
-    http
-      .get(options, function (res) {
-        res.on("data", (chunk) => {
-          // try {
-          //     console.log("HEROKU OK");
-          // } catch (err) {
-          //     console.log(err.message);
-          // }
-        });
-      })
-      .on("error", function (err) {
-        console.log("Error: " + err.message);
+  http
+    .get("http://ifsc-gaspar-telegram-bot.herokuapp.com/", function (res) {
+      res.on("data", (chunk) => {
+        // try {
+        //   const d = new Date();
+        //   console.log("HEROKU OK:", d);
+        // } catch (err) {
+        //   console.log(err.message);
+        // }
       });
-  }, 15 * 60 * 1000); // carrega a cada 20min
+    })
+    .on("error", function (err) {
+      console.log("Error: " + err.message);
+    });
 }
 
+//faz uma req. para o Heroku a cada 30s, tentando evitar que entre no modo inativo
+const keepAliveJob = new CronJob("*/30 * * * * *", () => {
+  startKeepAlive();
+});
 startKeepAlive();
+keepAliveJob.start();
 
 module.exports = (bot) => {
   app.post("/" + bot.token, (req, res) => {
