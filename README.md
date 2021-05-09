@@ -1,15 +1,14 @@
 # IFSC GASPAR BOT
 
-O objetivo principal dessa aplicação, além de estudar a criação de bots e como funcionam, é criar um bot que, utilizando RSS, envie notícias publicadas no [portal do campus IFSC Gaspar](https://www.ifsc.edu.br/web/campus-gaspar/noticias-por-categoria?p_p_id=122_INSTANCE_xqrhJQNWyCSn&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=_118_INSTANCE_S8G9AYPoVKDg__column-2&p_p_col_count=2&p_r_p_564233524_resetCur=true&p_r_p_564233524_categoryId=27870). O bot poderá também enviar outras informações do campus quando solicitado pelo usuário, como o contato dos docentes e horário das aulas.`
+O objetivo principal dessa aplicação, além de estudar a criação de bots e como funcionam, é criar um bot baseado em regras que responda a comandos pré-definidos executados pelo usuário.
 
 ## Tecnologias utilizadas
 
 - Node.js
 - [Express](https://expressjs.com/pt-br/) - Framework NodeJS;
-- [fivefilters](https://feedcontrol.fivefilters.org) - Criador e gerenciador de Feeds RSS
 - [yagop/node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api) - framework para construir Bots do Telegram em Node;
-- [rss-parser](https://github.com/rbren/rss-parser) - Biblioteca Javascipt para transformar feeds RSS/XML em objetos Javascript.
 - MongoDB - Banco de dados escolhido para gerenciar os dados da aplicação.
+- Heroku - Para hospedar o projeto.
 
 # Deployng on Heroku
 
@@ -33,7 +32,3 @@ FEED_URL = RSS a ser utilizado pelo bot
 REFRESH_INTERVAL = Intervalo de tempo em minutos que o Feed será analisado
 MONGO_URL = URL do seu banco de dados Mongo
 ```
-
-## Agradecimentos
-
-- [xorus](https://github.com/xorus/rss-to-telegram) - Por disponibilizar um projeto de RSS no Telegram, utilizado como base para o desenvolvimento deste.
